@@ -1,0 +1,9 @@
+{
+  "name": "sound-gen",
+  "version": "0.0.0",
+  "description": "sound-gen",
+  "main": "app.js",
+  "author": {
+    "name": "loktevra"
+  }
+}
