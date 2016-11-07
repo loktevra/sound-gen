@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "sound-gen", "sound-gen\sound-gen.njsproj", "{42C8757E-6769-48F8-8735-052F0C143843}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "sound-gen", "sound-gen.njsproj", "{42C8757E-6769-48F8-8735-052F0C143843}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
