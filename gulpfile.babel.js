@@ -27,7 +27,7 @@ gulp.task('styles', function () {
         .pipe(remember('styles'))
         .pipe(concat('main.css'))
         .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-        .pipe(gulp.dest('dist/styles'));
+        .pipe(gulp.dest('docs/styles'));
 });
 
 gulp.task('webpack', function (callback) {
@@ -52,7 +52,7 @@ gulp.task('webpack', function (callback) {
             module: {
                 loaders: [{
                     test: /\.js$/,
-                    include: path.join(__dirname, 'dev'),
+                    include: path.join(__dirname, 'src'),
                     loader: 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 }]
             },
@@ -60,7 +60,7 @@ gulp.task('webpack', function (callback) {
                 new webpack.NoErrorsPlugin()
             ]
         }, null, done),
-        gulp.dest('dist'),
+        gulp.dest('docs'),
     )
         .on('data', function () {
             if (isDevelopment && !callback.called) {
@@ -77,13 +77,13 @@ gulp.task('webpack', function (callback) {
 });
 
 gulp.task('clean', function () {
-    return del('dist');
+    return del('docs');
 });
 
 gulp.task('assets', function () {
     return gulp.src('src/**/*.html', { since: gulp.lastRun("assets") })
-        .pipe(newer('dist'))
-        .pipe(gulp.dest('dist'));
+        .pipe(newer('docs'))
+        .pipe(gulp.dest('docs'));
 });
 
 gulp.task('watch', function () {
@@ -102,9 +102,9 @@ gulp.task('build', gulp.series(
 
 gulp.task('server', function () {
     browserSyncer.init({
-        server: './dist/'
+        server: './docs/'
     });
-    browserSyncer.watch(['dist/**/*.*', 'index.html']).on('change', browserSyncer.reload);
+    browserSyncer.watch(['docs/**/*.*', 'index.html']).on('change', browserSyncer.reload);
 });
 
 gulp.task('dev',
